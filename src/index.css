@@ -468,4 +468,3 @@ a { color: inherit; }
 }
 /* 头图内容层保持在飘带之上 */
 .hero-inner, .hero-upper, .hero-bottom, .hero-title, .hero-sub, .btn-cta { position: relative; z-index: 1; }
-}
