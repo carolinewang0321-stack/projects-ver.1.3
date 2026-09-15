@@ -264,6 +264,8 @@ a { color: inherit; }
 .platform-head { padding: 14px 16px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; border-left: 3px solid var(--red); }
 .platform-head h4 { margin: 0; font-size: 1rem; font-weight: 800; }
 .platform-head span { font-size: 0.72rem; color: var(--red); }
+.platform-body { padding: 14px 16px; display: grid; gap: 12px; }
+.platform-role { font-size: 0.9rem; color: var(--ink2); line-height: 1.7; margin: 0; }
 .kv-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .kv-table th, .kv-table td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .kv-table tr:last-child th, .kv-table tr:last-child td { border-bottom: 0; }
