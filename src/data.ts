@@ -11,20 +11,25 @@ export const PROFILE = {
   slogan: "用数据驱动增长，用内容连接玩家",
   intro:
     "热爱游戏与二次元文化的运营人，擅长社媒内容策划、KOL合作与社区增长。希望用创意和数据为好游戏找到对的人。",
-  email: "caroline_2002@126.com",   // [占位] 改为你的邮箱
-  phone: "+86 ··· ···",             // [占位] 改为你的电话
+  email: "caroline_2002@126.com",
+  phone: "18023478917",
 };
 
 export const EDUCATION = [
   {
-    period: "2022 — 2027",
-    school: "[PLACEHOLDER: 学校名称]",
-    degree: "[PLACEHOLDER: 专业 / 学历]",
+    period: "2020.09 — 2024.06",
+    school: "北京第二外国语学院",
+    degree: "葡萄牙语 · GPA 3.7 · 本科毕业",
   },
   {
-    period: "20xx — 20xx",
-    school: "[PLACEHOLDER: 学校名称]",
-    degree: "[PLACEHOLDER: 专业 / 学历]",
+    period: "2022.09 — 2023.06",
+    school: "葡萄牙科英布拉大学",
+    degree: "交换留学",
+  },
+  {
+    period: "2025.09 — 至今",
+    school: "广东外语外贸大学",
+    degree: "日语口译 · 硕士在读",
   },
 ];
 
@@ -79,21 +84,26 @@ export const SKILLS = [
 
 export const EXPERIENCE = [
   {
-    period: "2025.03 — 2025.06",
-    company: "[PLACEHOLDER: 快手科技]",
-    role: "游戏运营 · [占位]",
+    period: "2026.03 — 至今",
+    company: "Olaparty（奥拉帕迪）",
+    role: "MKT 日语运营 · 实习",
     points: [
-      "[PLACEHOLDER: 负责XX游戏版本上线运营，制定内容计划与节点活动]",
-      "[PLACEHOLDER: 通过数据复盘优化素材，提升次日留存X%]",
+      "负责面向日本用户的网站 / APP 整体营销运营，深度理解日本市场与用户偏好。",
+      "日本市场推广：结合日本用户习惯策划并执行 INS、X、TikTok 等平台推广方案，与日本 KOL/KOC 建立合作，完成产品在目标人群中的宣传拉新。",
+      "通过搭建 Dify 工作流编排与 Prompt 设计，实现批量内容生成与分发，推动产品官网 SEO 排名显著提升。",
+      "内容：在 Ameba blog、Hatena、Livedoor、Note 等日本知名博客平台及官方后台产出核心卖点描述、社媒内容与博客通稿，契合日本流行语境。",
+      "社媒：运营官方 INS、X、TikTok、YouTube，负责日常发帖与账号生态维护；并参与网站内容相关的设计与分析，推动产品迭代落地。",
     ],
   },
   {
-    period: "2024.07 — 2024.12",
-    company: "[PLACEHOLDER: OlaParty]",
-    role: "海外游戏运营 · [占位]",
+    period: "2023.09",
+    company: "快手科技",
+    role: "Kwai Sports 葡语运营 · 实习",
     points: [
-      "[PLACEHOLDER: 负责日本市场社媒矩阵运营与KOL合作]",
-      "[PLACEHOLDER: 策划落地活动，带动新增与留存提升X%]",
+      "担任快手国际版（Kwai）运动专栏及相关网站的运营。",
+      "用户增长：负责拉新活动策划、行业头部调研、外国客户采访对接及 Affiliate 联盟营销。",
+      "社媒：负责产品在 X、Instagram、Facebook 等海外社媒的宣传运营，整理并反馈用户评论意见，提升产品曝光率与知名度。",
+      "社群达人：通过社群训练达人生产视频，最终实现批量宣传效果。",
     ],
   },
 ];

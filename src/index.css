@@ -124,7 +124,7 @@ a { color: inherit; }
 
 .hero-center { margin-bottom: 34px; }
 .hero-title { line-height: 0.96; margin: 0; }
-.hero-title .bl { display: block; font-size: clamp(4rem, 15vw, 12rem); font-weight: 900; letter-spacing: -0.03em; }
+.hero-title .bl { display: block; font-size: clamp(3rem, 11vw, 8.5rem); font-weight: 900; letter-spacing: -0.03em; }
 .hero-title .rd { color: var(--red); }
 .hero-title .tbox { display: inline-block; background: var(--red); color: var(--bg); width: 0.55em; height: 0.6em; line-height: 1; position: relative; top: 0.06em; }
 
@@ -235,8 +235,48 @@ a { color: inherit; }
 .detail-title { font-size: clamp(1.9rem, 4.6vw, 3.1rem); font-weight: 900; letter-spacing: -0.01em; margin: 0; }
 .detail-sub { font-size: 0.82rem; color: var(--aink); letter-spacing: 0.1em; margin: 8px 0 0; }
 .lead { font-size: 1.02rem; color: var(--aink); margin: 0 0 22px; }
-.detail-sec-title { display: flex; align-items: center; gap: 12px; font-size: 1.2rem; font-weight: 800; margin: 0 0 12px; }
+.detail-sec-title { display: flex; align-items: center; gap: 12px; font-size: 1.2rem; font-weight: 800; margin: 0 0 14px; }
 .detail-sec-title .rd { font-size: 0.95rem; }
+.section p { color: var(--aink); font-size: 0.94rem; }
+
+/* 圆点要点列表 */
+.dot-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.dot-list li { position: relative; padding-left: 18px; color: var(--aink); font-size: 0.93rem; }
+.dot-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; background: var(--red); }
+
+/* 通用表格 */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); }
+.pay-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 480px; }
+.pay-table th, .pay-table td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.pay-table thead th { background: color-mix(in srgb, var(--red) 9%, transparent); color: var(--ink); font-weight: 700; white-space: nowrap; }
+.pay-table tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+.pay-table td { color: var(--aink); }
+.pay-table tbody tr:last-child th, .pay-table tbody tr:last-child td { border-bottom: 0; }
+
+/* KOL 平台卡片 */
+.platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 760px){ .platform-grid{ grid-template-columns: 1fr; } }
+.platform-card { border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 70%, transparent); overflow: hidden; }
+.platform-head { padding: 14px 16px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; border-left: 3px solid var(--red); }
+.platform-head h4 { margin: 0; font-size: 1rem; font-weight: 800; }
+.platform-head span { font-size: 0.72rem; color: var(--red); }
+.kv-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.kv-table th, .kv-table td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.kv-table tr:last-child th, .kv-table tr:last-child td { border-bottom: 0; }
+.kv-table th { width: 76px; color: var(--ink); font-weight: 700; white-space: nowrap; }
+.kv-table td { color: var(--aink); }
+
+/* 心理效应卡片 */
+.psy-card { border: 1px solid var(--line); border-left: 3px solid var(--red); padding: 16px 18px; margin-bottom: 14px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.psy-card h4 { margin: 0 0 8px; font-size: 0.98rem; font-weight: 800; }
+.psy-card p { margin: 0; font-size: 0.9rem; }
+
+/* Dify 流程节点 */
+.flow-list { display: grid; gap: 10px; }
+.flow-node { display: flex; gap: 16px; align-items: flex-start; border: 1px solid var(--line); padding: 14px 16px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.flow-idx { color: var(--red); font-size: 0.9rem; padding-top: 2px; }
+.flow-node strong { font-size: 0.95rem; }
+.flow-node p { margin: 3px 0 0; font-size: 0.88rem; }
 
 /* ============================ PS 画廊 ============================ */
 .gallery-cat { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 800; margin-bottom: 22px; }
@@ -261,6 +301,6 @@ a { color: inherit; }
   .hero { min-height: auto; padding-top: 120px; }
   .hero-upper { flex-direction: column; margin-bottom: 24px; }
   .hero-bottom { flex-direction: column; align-items: flex-start; }
-  .hero-title .bl { font-size: clamp(2.8rem, 18vw, 4.5rem); }
+  .hero-title .bl { font-size: clamp(2.4rem, 14vw, 3.6rem); }
   .section { padding: 56px 0; }
 }

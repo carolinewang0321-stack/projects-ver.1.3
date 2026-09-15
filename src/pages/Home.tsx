@@ -179,16 +179,9 @@ export default function Home() {
               <a className="contact-link" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
             </div>
             <div className="contact-item">
-              <span className="mono rd">WECHAT</span>
-              <span className="contact-link">[PLACEHOLDER: 微信号]</span>
+              <span className="mono rd">PHONE</span>
+              <a className="contact-link" href={`tel:${PROFILE.phone}`}>{PROFILE.phone}</a>
             </div>
-            <div className="contact-item">
-              <span className="mono rd">GITHUB / 作品主页</span>
-              <a className="contact-link" href="[PLACEHOLDER: 你的主页链接]" target="_blank" rel="noreferrer">
-                [PLACEHOLDER: 主页链接]
-              </a>
-            </div>
-            <a className="btn-cta" href={"/ps-design"}>下载简历</a>
           </div>
         </div>
       </section>
