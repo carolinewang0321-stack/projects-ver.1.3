@@ -73,8 +73,8 @@ export default function Home() {
           <SectionHead num="01" title="教育背景" />
           <div className="edu-grid">
             <div className="edu-col">
-              {EDUCATION.map((e) => (
-                <div className="edu-item reveal" key={e.school}>
+              {EDUCATION.map((e, i) => (
+                <div className="edu-item reveal" key={e.period + "-" + i}>
                   <div className="edu-line" />
                   <p className="mono edu-period">{e.period}</p>
                   <h3 className="edu-school">{e.school}</h3>
