@@ -8,9 +8,11 @@
   --surface: #ffffff;
   --ink: #141414;
   --aink: #5a5a5a;
+  --ink2: #5a5a5a;
   --red: #e63946;
   --red-soft: #f7c6c9;
   --line: rgba(20, 20, 20, 0.12);
+  --mono: "Space Mono", "Inter", monospace;
 }
 html.dark {
   --bg: #121214;
@@ -18,9 +20,11 @@ html.dark {
   --surface: #1a1a1d;
   --ink: #f2f0ec;
   --aink: #a8a49e;
+  --ink2: #a8a49e;
   --red: #ff3b30;
   --red-soft: #4a2327;
   --line: rgba(255, 255, 255, 0.16);
+  --mono: "Space Mono", "Inter", monospace;
 }
 
 * { box-sizing: border-box; }
@@ -287,6 +291,58 @@ a { color: inherit; }
 .flow-idx { color: var(--red); font-size: 0.9rem; padding-top: 2px; }
 .flow-node strong { font-size: 0.95rem; }
 .flow-node p { margin: 3px 0 0; font-size: 0.88rem; }
+
+/* ============================ KOL / 详情通用区块 ============================ */
+.detail-sec { margin-bottom: 56px; }
+.detail-sec:last-child { margin-bottom: 0; }
+.detail-sec .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+.detail-sec .sec-head > .mono { font-family: var(--mono); font-size: 0.9rem; color: var(--red); letter-spacing: 0.08em; }
+.section-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+.section-sub { color: var(--aink); font-size: 0.95rem; line-height: 1.75; margin: 8px 0 22px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px; }
+@media (max-width: 760px){ .grid2 { grid-template-columns: 1fr; } }
+
+/* KOL 分层徽标 */
+.tier-tag { display: inline-block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--red); border: 1px solid var(--red); padding: 2px 8px; margin-bottom: 10px; }
+.tier-card h4 { margin: 0 0 6px; font-size: 1.05rem; }
+.tier-card p { margin: 0; font-size: 0.86rem; color: var(--ink2); line-height: 1.6; }
+
+/* 人设 / 能力小卡 */
+.persona-card { border: 1px solid var(--line); background: var(--surface); padding: 16px 18px; transition: border-color 0.25s ease, transform 0.25s ease; }
+.persona-card:hover { border-color: var(--red); transform: translateY(-2px); }
+.persona-head { margin-bottom: 8px; }
+.persona-trait { font-weight: 800; font-size: 0.95rem; border-left: 3px solid var(--red); padding-left: 8px; }
+.persona-desc { margin: 0; font-size: 0.88rem; line-height: 1.7; color: var(--ink2); }
+
+/* 风险卡 */
+.risk-card { border: 1px solid var(--line); padding: 16px 18px; background: var(--surface); }
+.risk-card h4 { margin: 0 0 10px; font-size: 1rem; }
+.risk-card .mono { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--red); margin: 10px 0 3px; }
+.risk-card p { margin: 0; font-size: 0.86rem; line-height: 1.65; color: var(--ink2); }
+
+/* 信息卡 */
+.info-card { border: 1px solid var(--line); background: var(--surface); padding: 18px 20px; margin-bottom: 14px; }
+.info-card p { margin: 0; font-size: 0.92rem; line-height: 1.75; color: var(--ink2); }
+.card-title { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 800; margin: 0 0 10px; }
+
+/* 成果数据 */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0; }
+@media (max-width: 760px){ .stat-grid { grid-template-columns: 1fr 1fr; } }
+.stat-item { border: 1px solid var(--line); background: var(--surface); padding: 20px 16px; text-align: center; }
+.stat-num { font-family: var(--mono); font-size: 2.1rem; font-weight: 700; color: var(--red); line-height: 1; margin-bottom: 10px; }
+.stat-x { font-size: 1.3rem; margin-left: 2px; }
+.stat-item p { margin: 0; font-size: 0.82rem; line-height: 1.55; color: var(--ink2); }
+.callout { border-left: 3px solid var(--red); background: color-mix(in srgb, var(--red) 6%, transparent); padding: 14px 18px; font-size: 0.92rem; line-height: 1.75; margin: 14px 0 0; }
+
+/* 困难处理 A/B/C */
+.difficulty-box { border: 1px dashed var(--red); padding: 20px 22px; margin-top: 18px; background: color-mix(in srgb, var(--red) 4%, transparent); }
+.difficulty-q { font-size: 1rem; font-weight: 700; margin: 12px 0 6px; line-height: 1.7; }
+.difficulty-box > .mono { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.06em; color: var(--red); margin: 0 0 14px; }
+.diff-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 760px){ .diff-options { grid-template-columns: 1fr; } }
+.diff-opt { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line); background: var(--surface); padding: 14px; }
+.diff-opt p { margin: 0; font-size: 0.86rem; line-height: 1.65; color: var(--ink2); }
+.diff-badge { flex: none; width: 26px; height: 26px; display: grid; place-items: center; background: var(--red); color: #fff; font-family: var(--mono); font-size: 0.85rem; font-weight: 700; }
 
 /* ============================ PS 画廊 ============================ */
 .gallery-cat { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 800; margin-bottom: 22px; }
