@@ -78,7 +78,7 @@ export default function KolPlan() {
   return (
     <PageShell back="/" title="社媒 KOL 长内容平台运营方案" sub="INTERNSHIP · KOL 运营方案">
       <p className="lead reveal">
-        OLA PARTY JAPAN × 短剧社交产品 Yoitoki 的日本市场拉新与种草方案：
+        OLA PARTY JAPAN 旗下社交产品 Yoitoki 的日本市场拉新与种草方案：
         以统一人设运营 Note、Ameba、livedoor、Hatena 四大长内容平台，并联动日本 KOL / KOC 完成产品在目标人群中的宣传拉新。
       </p>
 
@@ -117,6 +117,54 @@ export default function KolPlan() {
             <thead><tr><th>事项</th><th>写作准则</th></tr></thead>
             <tbody>
               {avoid.map(([k, v]) => <tr key={k}><td>{k}</td><td>{v}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="section">
+        <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> PR TIMES 官方新闻稿与 SEO 导流</h3>
+        <div className="table-wrap reveal">
+          <table className="pay-table">
+            <thead><tr><th>主体</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>涉及业务</td><td>PR Times 新闻稿 / 系列 SEO 文章（时段与原 yoitoki 运营互斥，期间 Yoitoki 账号更新减少，最终发布共 11 篇）</td></tr>
+              <tr><td>代表案例</td><td>以「今年の花火大会、誰と行きますか？」为例：结合 7 月下旬隅田川花火大会季节热点，围绕「时间 / 对话 / 费用 / 照片 / 关系推进」五个维度展开约会前的价值观确认建议，将 AI 美緒（Mio）、AI 映美（Emi）、AI 由美（Yumi）三个产品功能自然嵌入场景化叙事，并引用 Reuters 物价报道及一篇约 40 万用户规模的交友通讯行为研究作为外部数据支撑，符合 PR 稿件「数据来源需标注机构 / 标题 / 日期 / 样本量」的写作规范；文中还植入多条 yoitoki.jp 站内博客链接，与 SEO 文章矩阵互链，兼具 PR 传播与 SEO 导流双重作用。</td></tr>
+              <tr><td>成果数据</td><td>Page View 较前月增长 11 倍；PR Times X 官号每篇转发；外链累计增加 112 条；GEO 效果支持 59 个 query 进入谷歌 AI Summary；同期有类似 webridge 的 affiliate 供应商主动接洽。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="section">
+        <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> PR 写作复盘：可复用的引流 / 避免限流准则</h3>
+        <ul className="dot-list reveal">
+          <li>文章必须介绍 App 的一个特点（属性 / 社区 / 功能等），且产品功能点需具备时效性（一个月内发布），或采用自社调查；文中所有数据 / 调查须在文末标注调查名称、机构、日期、参与者人数与调查 URL。</li>
+          <li>文章需援引 2 个第三方数据说明观点并包含数据分析；标题尽可能含有「AI」字样，更利于引流与转载。</li>
+          <li>配图 / 封面不得含争议语句或「No.1」等绝对化用语，否则会被撤稿；文章中必须包含企业在 PR Times 注册的企业名，否则会被限流。</li>
+          <li>可发布其他语言文章，但必须附日文翻译且日文至少占 50%，否则易被限流 / 撤稿；一个账户可为同一篇文章无限点赞，点赞量与观看量无直接关系。</li>
+          <li>面临困难：若既无新功能也无自社调查怎么办？→ 自创社媒事件：A. 发布 campaign 创作新鲜事（如七夕最佳约会地点投票话题）；B. 官宣产品推出「恋活婚活研究实验室」；C. 撰写自社调查并补充问卷 / 数据。</li>
+        </ul>
+      </section>
+
+      <section className="section">
+        <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> AI 生成内容质量评估（日语学习 App）</h3>
+        <p className="lead reveal">
+          参与公司孵化的日语学习类新产品项目（周期 3-4 周）：针对 AI 生成的日语学习文章进行人工评分，评分结果用于模型微调及内容团队质量监控报表。
+        </p>
+        <ul className="dot-list reveal">
+          <li>内容范围：覆盖恋爱乙女游戏、Chiikawa、少女漫画、推理小说、秘境探访等六至七个主题，难度覆盖 N5-N1 全阶段，评估文章达数百篇。</li>
+          <li>评分方式：以「可读性 / 吸引力」为核心的粗粒度维度（「让人想读」到「完全读不懂 / 读不下去」），结合语法、内容、设定、逻辑等角度综合判断；与同组实习生评分标准自然一致，无需专门校准。</li>
+        </ul>
+        <div className="table-wrap reveal">
+          <table className="pay-table">
+            <thead><tr><th>归纳的问题</th><th>规律与优化方向</th></tr></thead>
+            <tbody>
+              <tr><td>题材与文体适配</td><td>秘境探访类倾向短句 + である体，规避语法风险但削弱历史 / 故事题材的文学质感；部分文章「叙述体 / 敬体」混用不一致</td></tr>
+              <tr><td>AI 用词失真</td><td>AI 易混淆中日汉字 / 繁简字（如误将「穴場」写成「小众秘境」），为后续 prompt 优化提供修正方向</td></tr>
+              <tr><td>叙事逻辑漏洞</td><td>短篇推理小说结局仓促、人物逻辑前后矛盾；长篇完整度更高，说明 AI 在短文本内伏笔与收束能力有限</td></tr>
+              <tr><td>模板化倾向</td><td>秘境探访类结构高度雷同（固定导入 + 历史介绍），环境描写扎实但人物个性缺失，同质化、可读性下降</td></tr>
+              <tr><td>题材适配度差异</td><td>Chiikawa 类缺乏中心思想时即便描写细腻也「用力过猛」；少女漫画贴近日常语体，语言难度与题材调性配合度最高</td></tr>
             </tbody>
           </table>
         </div>
