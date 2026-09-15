@@ -360,6 +360,40 @@ a { color: inherit; }
 .ps-frame.avatar img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 22%; }
 .ps-frame figcaption { padding: 12px 14px; font-size: 0.75rem; color: var(--aink); border-top: 1px solid var(--line); }
 
+/* ============================ 三亚团建攻略 ============================ */
+.sanya-cover { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+.sanya-cover img { width: 100%; max-height: 560px; object-fit: cover; object-position: top; }
+.sanya-post { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+@media (max-width: 860px){ .sanya-post { grid-template-columns: 1fr; } }
+.sanya-fig { margin: 0; border: 1px solid var(--line); background: var(--surface); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.sanya-fig:hover { transform: scale(1.015); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+.sanya-fig img { width: 100%; }
+.sanya-fig figcaption { padding: 12px 14px; font-size: 0.78rem; color: var(--aink); border-top: 1px solid var(--line); line-height: 1.6; }
+.sanya-note { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--red); margin: 0 0 10px; }
+.itinerary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 760px){ .itinerary-grid { grid-template-columns: 1fr; } }
+.itinerary-card { border: 1px solid var(--line); border-top: 3px solid var(--red); background: color-mix(in srgb, var(--surface) 60%, transparent); padding: 20px 22px; }
+.itinerary-card h4 { margin: 0 0 14px; font-size: 1.05rem; font-weight: 800; }
+.it-day { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 0.9rem; color: var(--aink); }
+.it-day:last-child { border-bottom: 0; }
+.it-day .d { flex: none; font-family: var(--mono); color: var(--red); font-size: 0.82rem; padding-top: 1px; }
+.bay-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media (max-width: 860px){ .bay-grid { grid-template-columns: 1fr; } }
+.bay-card { border: 1px solid var(--line); border-left: 3px solid var(--red); background: color-mix(in srgb, var(--surface) 60%, transparent); padding: 16px 18px; }
+.bay-card h4 { margin: 0 0 6px; font-size: 1rem; font-weight: 800; }
+.bay-card .pros, .bay-card .cons { font-size: 0.88rem; line-height: 1.7; margin: 0; }
+.bay-card .lbl { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; padding: 1px 8px; margin: 8px 6px 6px 0; border: 1px solid var(--line); color: var(--aink); }
+.bay-card .lbl.good { color: var(--red); border-color: var(--red); }
+.spot-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media (max-width: 900px){ .spot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px){ .spot-grid { grid-template-columns: 1fr; } }
+.spot-card { border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 60%, transparent); padding: 16px 18px; }
+.spot-card .rank { display: inline-block; background: var(--red); color: #fff; font-family: var(--mono); font-size: 0.72rem; font-weight: 700; padding: 2px 8px; letter-spacing: 0.05em; margin-bottom: 10px; }
+.spot-card h4 { margin: 0 0 8px; font-size: 1.02rem; font-weight: 800; }
+.spot-meta { display: grid; gap: 4px; font-size: 0.85rem; color: var(--aink); }
+.spot-meta b { color: var(--ink); font-weight: 700; }
+.spot-intro { font-size: 0.88rem; line-height: 1.7; color: var(--ink2); margin: 10px 0 0; }
+
 /* ============================ 响应式 ============================ */
 @media (max-width: 900px){
   .nav-links { display: none; }
