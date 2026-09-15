@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // 说明：图片完整展示，保留原图底部署名。
 const banners = [
   { src: "/ps/work-01.jpg", title: "签名档 · 马卡龙渐变" },
-  { src: "/ps/work-02.jpg", title: "签名档 · 复古米灰" },
   { src: "/ps/work-03.jpg", title: "应援横幅 · 暖粉向日葵" },
   { src: "/ps/work-04.jpg", title: "古风签名档 · 風鈴" },
   { src: "/ps/work-05.jpg", title: "应援横幅 · 清新暖阳" },
@@ -17,12 +16,29 @@ const banners = [
   { src: "/ps/work-12.jpg", title: "签名档 · DReAMER" },
   { src: "/ps/work-13.jpg", title: "伤感文字签名档" },
   { src: "/ps/work-14.jpg", title: "签名档 · 魔卡少女樱" },
+  { src: "/ps/work-17.jpg", title: "签名档 · 金信英" },
+  { src: "/ps/work-18.jpg", title: "签名档 · 双人合影" },
+  { src: "/ps/work-19.jpg", title: "签名档 · 复古黑帽" },
+  { src: "/ps/work-20.jpg", title: "签名档 · 阎魔爱" },
+  { src: "/ps/work-22.jpg", title: "签名档 · 魔卡少女樱 2" },
+  { src: "/ps/work-23.jpg", title: "影视宣传横幅 · 蜀山战纪" },
+  { src: "/ps/work-24.jpg", title: "签名档 · 魔卡少女樱 3" },
+  { src: "/ps/work-25.jpg", title: "影视宣传横幅 · 杨蓉" },
+  { src: "/ps/work-26.jpg", title: "影视宣传横幅 · 杨幂" },
+  { src: "/ps/work-27.jpg", title: "影视宣传横幅 · 杨幂 2" },
+  { src: "/ps/work-28.jpg", title: "签名档 · 魔卡少女樱 4" },
 ];
 
 const avatars = [
   { src: "/ps/work-08.jpg", title: "头像 · 王俊凯" },
   { src: "/ps/work-15.jpg", title: "头像 · 允儿1" },
   { src: "/ps/work-16.jpg", title: "头像 · 允儿2" },
+  { src: "/ps/work-21.jpg", title: "头像 · 暗调氛围" },
+];
+
+// 第三类：设计框（方形主题设计图，尺寸与横幅不同）
+const frames = [
+  { src: "/ps/design-01.jpg", title: "设计框 · Apink 主题" },
 ];
 
 export default function PSDesign() {
@@ -67,6 +83,21 @@ export default function PSDesign() {
           <div className="ps-avatar-grid">
             {avatars.map((b) => (
               <figure className="ps-frame reveal avatar" key={b.src}>
+                <img src={b.src} alt={b.title} loading="lazy" />
+                <figcaption className="mono">{b.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* 设计框 */}
+        <section className="section">
+          <h3 className="gallery-cat">
+            <span className="rd mono">03</span> 设计框
+          </h3>
+          <div className="ps-avatar-grid">
+            {frames.map((b) => (
+              <figure className="ps-frame reveal frame" key={b.src}>
                 <img src={b.src} alt={b.title} loading="lazy" />
                 <figcaption className="mono">{b.title}</figcaption>
               </figure>
