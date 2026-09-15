@@ -36,7 +36,7 @@
 
 /* ===== Light Theme ===== */
 :root {
-  --background: #FAFAFA;
+  --background: #FFFFFF;
   --foreground: #1A1A1A;
   --card: #FFFFFF;
   --card-foreground: #1A1A1A;
@@ -44,11 +44,11 @@
   --popover-foreground: #1A1A1A;
   --primary: #E63946;
   --primary-foreground: #FFFFFF;
-  --secondary: #F5F5F5;
+  --secondary: #F8F8F8;
   --secondary-foreground: #1A1A1A;
-  --muted: #F0F0F0;
-  --muted-foreground: #6B6B6B;
-  --accent: #FFD166;
+  --muted: #F5F5F5;
+  --muted-foreground: #888888;
+  --accent: #FFF3E0;
   --accent-foreground: #1A1A1A;
   --destructive: #E63946;
   --border: rgba(0, 0, 0, 0.08);
@@ -58,23 +58,23 @@
 
 /* ===== Dark Theme ===== */
 .dark {
-  --background: #0A0A0B;
+  --background: #0A0A0A;
   --foreground: #F0F0F0;
-  --card: #141416;
+  --card: #141414;
   --card-foreground: #F0F0F0;
-  --popover: #141416;
+  --popover: #141414;
   --popover-foreground: #F0F0F0;
   --primary: #FF3B30;
   --primary-foreground: #FFFFFF;
-  --secondary: #1E1E22;
+  --secondary: #1A1A1A;
   --secondary-foreground: #F0F0F0;
-  --muted: #1E1E22;
-  --muted-foreground: #9A9A9A;
-  --accent: #FFD166;
-  --accent-foreground: #1A1A1A;
+  --muted: #1E1E1E;
+  --muted-foreground: #999999;
+  --accent: #2A2000;
+  --accent-foreground: #F0F0F0;
   --destructive: #FF3B30;
   --border: rgba(255, 255, 255, 0.08);
-  --input: #1E1E22;
+  --input: #1E1E1E;
   --ring: #FF3B30;
 }
 
@@ -89,15 +89,41 @@
 
 /* ===== Custom Styles ===== */
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Scroll-in animation */
+/* Section label */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* Display title with red dot */
+.display-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.display-title::after {
+  content: '';
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  background: var(--primary);
+  border-radius: 50%;
+  margin-left: 0.15em;
+  vertical-align: middle;
+}
+
+/* Fade in up animation */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .fade-in-up.visible {
@@ -105,7 +131,31 @@ html {
   transform: translateY(0);
 }
 
-/* Link underline animation */
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.dark .card-hover:hover {
+  box-shadow: 0 8px 24px rgba(255, 59, 48, 0.1);
+}
+
+/* Skill bar */
+.skill-bar-track {
+  height: 2px;
+  background: var(--border);
+  position: relative;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 1s ease-out;
+}
+
+/* Link underline */
 .link-underline {
   position: relative;
   text-decoration: none;
@@ -116,7 +166,7 @@ html {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: var(--primary);
   transition: width 0.3s ease;
 }
@@ -124,80 +174,40 @@ html {
   width: 100%;
 }
 
-/* Card hover effect */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-hover:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-}
-.dark .card-hover:hover {
-  box-shadow: 0 12px 32px rgba(255, 59, 48, 0.08);
+/* Timeline dot */
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-/* Hairline divider */
+/* Portfolio card number badge */
+.portfolio-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+}
+
+/* Hairline */
 .hairline {
   border: none;
   height: 1px;
   background: var(--border);
 }
 
-/* Neon glow for dark mode decorations */
-.neon-glow {
-  filter: drop-shadow(0 0 8px var(--primary));
-}
-
-/* Pixel grid background pattern */
-.pixel-grid {
-  background-image:
-    linear-gradient(rgba(230, 57, 70, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(230, 57, 70, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-.dark .pixel-grid {
-  background-image:
-    linear-gradient(rgba(255, 59, 48, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 59, 48, 0.08) 1px, transparent 1px);
-}
-
-/* Skill bar animation */
-.skill-bar-fill {
-  transition: width 1s ease-out;
-}
-
-/* Mobile menu animation */
-.mobile-menu-enter {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-.mobile-menu-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Bounce animation for scroll indicator */
+/* Bounce animation */
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+  50% { transform: translateY(6px); }
 }
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
-}
-
-/* Display title style */
-.display-title {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-}
-
-/* Mono accent text */
-.mono-accent {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
