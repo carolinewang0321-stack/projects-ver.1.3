@@ -1,7 +1,7 @@
 [project]
 requires = [ "nodejs-24" ]
 project_type = "web"
-template = "nextjs"
+template = "vite"
 version = "0.1.8"
 appliedPatches = [ ]
 

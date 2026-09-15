@@ -1,13 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 $workspace = if ($env:COZE_WORKSPACE_PATH) { $env:COZE_WORKSPACE_PATH } else { (Get-Location).Path }
+& "$PSScriptRoot/ensure-deps.ps1"
 Set-Location $workspace
-
-Write-Host "Installing dependencies..."
-& pnpm install --prefer-frozen-lockfile --prefer-offline --loglevel debug --reporter=append-only
-if ($LASTEXITCODE -ne 0) {
-  exit $LASTEXITCODE
-}
 
 if (Get-Command coze-dev -ErrorAction SilentlyContinue) {
   & coze-dev check-bins --help *> $null

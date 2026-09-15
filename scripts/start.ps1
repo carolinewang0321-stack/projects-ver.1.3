@@ -5,7 +5,7 @@ $defaultPort = 5000
 $port = if ($env:DEPLOY_RUN_PORT) { $env:DEPLOY_RUN_PORT } elseif ($env:PORT) { $env:PORT } else { $defaultPort }
 Set-Location $workspace
 
-Write-Host "Starting HTTP service on port $port for deploy..."
+Write-Host "Starting express production server on port $port..."
 $env:PORT = "$port"
-& node dist/server.js
+& node dist-server/server.js
 exit $LASTEXITCODE

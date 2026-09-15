@@ -1,16 +1,13 @@
 $ErrorActionPreference = "Stop"
 
 $workspace = if ($env:COZE_WORKSPACE_PATH) { $env:COZE_WORKSPACE_PATH } else { (Get-Location).Path }
+& "$PSScriptRoot/ensure-deps.ps1"
 Set-Location $workspace
 
-Write-Host "Installing dependencies..."
-& pnpm install --prefer-frozen-lockfile --prefer-offline --loglevel debug --reporter=append-only
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
-Write-Host "Building the Next.js project..."
-& pnpm next build --webpack
+Write-Host "Building frontend with Vite..."
+& pnpm vite build
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "Bundling server with tsup..."
-& pnpm tsup src/server.ts --format cjs --platform node --target node20 --outDir dist --no-splitting --no-minify
+& pnpm tsup server/server.ts --format cjs --platform node --target node20 --outDir dist-server --no-splitting --no-minify --external vite
 exit $LASTEXITCODE

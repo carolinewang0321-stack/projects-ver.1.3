@@ -41,19 +41,35 @@ if (Test-Path $pidFile) {
 $previousPort = $env:PORT
 $env:PORT = "$port"
 try {
-  $process = Start-Process -FilePath $env:ComSpec -ArgumentList @("/d", "/s", "/c", "pnpm next dev --webpack --hostname 0.0.0.0 --port $port") -WorkingDirectory $workspace -RedirectStandardOutput $logFile -RedirectStandardError $errorLogFile -PassThru
+  $process = Start-Process -FilePath $env:ComSpec -ArgumentList @("/d", "/s", "/c", "pnpm tsx watch server/server.ts") -WorkingDirectory $workspace -RedirectStandardOutput $logFile -RedirectStandardError $errorLogFile -PassThru
 } finally {
   if ($null -eq $previousPort) { Remove-Item Env:PORT -ErrorAction SilentlyContinue } else { $env:PORT = $previousPort }
 }
 
 $process.Id | Set-Content $pidFile
-Start-Sleep -Seconds 1
-if ($process.HasExited) {
-  Get-Content $errorLogFile -Tail 20 -ErrorAction SilentlyContinue
-  Remove-Item $pidFile -Force -ErrorAction SilentlyContinue
-  exit 1
+
+$startupTimeoutSeconds = 30
+$startupDeadline = (Get-Date).AddSeconds($startupTimeoutSeconds)
+while ((Get-Date) -lt $startupDeadline) {
+  if ($process.HasExited) {
+    Get-Content $errorLogFile -Tail 20 -ErrorAction SilentlyContinue
+    Remove-Item $pidFile -Force -ErrorAction SilentlyContinue
+    Write-Error "Dev server exited before listening on port $port." -ErrorAction Continue
+    exit 1
+  }
+
+  if (Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue) {
+    Write-Host "Dev server is listening on port $port (PID: $($process.Id))."
+    Write-Host "Log file: $logFile"
+    exit 0
+  }
+
+  Start-Sleep -Milliseconds 200
 }
 
-Write-Host "Dev server started (PID: $($process.Id))."
-Write-Host "Log file: $logFile"
+Stop-ProcessTree $process.Id
+Get-Content $errorLogFile -Tail 20 -ErrorAction SilentlyContinue
+Remove-Item $pidFile -Force -ErrorAction SilentlyContinue
+Write-Error "Dev server did not listen on port $port within $startupTimeoutSeconds seconds." -ErrorAction Continue
+exit 1
 
