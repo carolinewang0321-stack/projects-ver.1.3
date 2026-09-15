@@ -183,9 +183,6 @@ export default function Sanya() {
         </h3>
         <figure className="sanya-cover">
           <img src={`${imgDir}/cover.jpg`} alt="三亚团建攻略封面" />
-          <figcaption className="mono" style={{ padding: "10px 14px", fontSize: "0.75rem", color: "var(--aink)" }}>
-            三亚团建攻略｜纯干货 · 春夏必去宝藏地 · 旅行 / 团建
-          </figcaption>
         </figure>
       </section>
 
@@ -211,7 +208,6 @@ export default function Sanya() {
           </div>
           <figure className="sanya-fig">
             <img src={`${imgDir}/stay.jpg`} alt="住宿安排与出行选择" loading="lazy" />
-            <figcaption>住宿安排 · 出行选择（原图）</figcaption>
           </figure>
         </div>
       </section>
@@ -262,17 +258,14 @@ export default function Sanya() {
         <div className="sanya-post reveal" style={{ marginBottom: 22 }}>
           <figure className="sanya-fig">
             <img src={`${imgDir}/spot3.jpg`} alt="必玩地点 1-3" loading="lazy" />
-            <figcaption>人气景点 TOP 1-3（原图）</figcaption>
           </figure>
           <figure className="sanya-fig">
             <img src={`${imgDir}/spot4.jpg`} alt="必玩地点 4-6" loading="lazy" />
-            <figcaption>人气景点 TOP 4-6（原图）</figcaption>
           </figure>
         </div>
         <div className="sanya-post reveal">
           <figure className="sanya-fig">
             <img src={`${imgDir}/spot5.jpg`} alt="必玩地点 7-9" loading="lazy" />
-            <figcaption>人气景点 TOP 7-9（原图）</figcaption>
           </figure>
           <div>
             <div className="spot-grid" style={{ gridTemplateColumns: "1fr", gap: 12 }}>
@@ -302,7 +295,6 @@ export default function Sanya() {
         <div className="sanya-post reveal">
           <figure className="sanya-fig">
             <img src={`${imgDir}/ticket.jpg`} alt="三大必去景点票价" loading="lazy" />
-            <figcaption>三亚必去景点票价（原图）</figcaption>
           </figure>
           <div className="table-wrap">
             <table className="pay-table">
