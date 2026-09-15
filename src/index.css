@@ -270,6 +270,16 @@ a { color: inherit; }
 .psy-card { border: 1px solid var(--line); border-left: 3px solid var(--red); padding: 16px 18px; margin-bottom: 14px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
 .psy-card h4 { margin: 0 0 8px; font-size: 0.98rem; font-weight: 800; }
 .psy-card p { margin: 0; font-size: 0.9rem; }
+.psy-card p + p { margin-top: 8px; }
+
+.sub-head { margin: 20px 0 10px; font-size: 0.95rem; font-weight: 800; }
+.tier-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-bottom: 6px; }
+.tier-card { border: 1px solid var(--line); border-top: 3px solid var(--red); padding: 14px 16px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.tier-card h4 { margin: 0 0 6px; font-size: 0.95rem; font-weight: 800; }
+.tier-card p { margin: 0; font-size: 0.85rem; color: var(--aink); }
+.dot-list { list-style: none; margin: 0; padding: 0; }
+.dot-list li { position: relative; padding-left: 18px; margin-bottom: 9px; font-size: 0.92rem; }
+.dot-list li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 8px; height: 8px; background: var(--red); }
 
 /* Dify 流程节点 */
 .flow-list { display: grid; gap: 10px; }
