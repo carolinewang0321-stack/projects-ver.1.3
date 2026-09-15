@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 字体 -->
+  <link href="https://lf-code-agent.coze.cn/obj/x-ai-cn/fonts/google/google-all-fonts.css" rel="stylesheet"/>
+
+  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/jquery/jquery-3.7.1.min.js"></script>
+  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/lucide/lucide-1.11.0.min.js"></script>
+  <script src="https://lf-code-agent.coze.cn/obj/x-ai-cn/cdn/tailwindcss/tailwindcss-browser-4.2.4.min.js"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      /* === 品牌色 === */
+      --color-primary:              #7C3AED;
+      --color-primary-container:    #EDE9FE;
+      --color-on-primary:           #ffffff;
+      /* === 背景 / 表面 === */
+      --color-background:                 #FAFAF9;
+      --color-surface-container-lowest:   #FFFFFF;
+      --color-surface:                    #FFFFFF;
+      --color-surface-container:          #F0EFEC;
+      --color-surface-container-high:     #E8E7E4;
+      --color-surface-container-highest:  #E0DFDC;
+      /* === 文字 === */
+      --color-on-surface:           #1C1C1E;
+      --color-on-surface-variant:   #717071;
+      /* === 功能色 === */
+      --color-success:  #22c55e;
+      --color-error:    #ef4444;
+      --color-warning:  #f59e0b;
+      /* === 边框 === */
+      --color-outline:          #D6D5D3;
+      --color-outline-variant:  #E8E7E5;
+      /* === 圆角 === */
+      --radius-sm:   0.375rem;
+      --radius-md:   0.5rem;
+      --radius-lg:   0.75rem;
+      --radius-xl:   1rem;
+      --radius-2xl:  1.25rem;
+      --radius-full: 9999px;
+      /* === 阴影 === */
+      --shadow-card:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-float:  0 10px 25px rgba(0,0,0,0.12);
+      --shadow-dialog: 0 25px 50px rgba(0,0,0,0.18);
+      /* === 字体 === */
+      --font-sans: "Manrope", "Noto Sans SC", system-ui, sans-serif;
+    }
+  </style>
+
+  <!-- 图片兜底 -->
+  <script>
+    document.addEventListener('error', function (e) {
+      const img = e.target;
+      if (img.tagName !== 'IMG' || img.dataset.fallback) return;
+      img.dataset.fallback = '1';
+      const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const cat = img.getAttribute('data-category') || '其他';
+      const alt = img.getAttribute('alt') || '';
+      const label = esc(alt.length > 8 ? alt.slice(0, 8) + '…' : alt);
+      const icons = { '人物': '👤', '自然风景': '🏞', '动物': '🐾', '建筑城市': '🏙', '运动体育': '⚽', '交通工具': '🚗', '食物': '🍽', '服饰时尚': '👗', '商业科技': '💼', '游戏娱乐': '🎮', '艺术': '🎨', '其他': '🖼' };
+      const icon = icons[cat] || '🖼';
+      const w = img.width || 400, h = img.height || 300;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="%23f3f4f6"/><text x="50%" y="45%" text-anchor="middle" font-size="${Math.min(w, h) * 0.18}" dominant-baseline="central">${icon}</text><text x="50%" y="68%" text-anchor="middle" font-size="${Math.min(w, h) * 0.07}" fill="%239ca3af" font-family="system-ui,sans-serif" dominant-baseline="central">${label}</text></svg>`;
+      img.src = 'data:image/svg+xml,' + svg;
+    }, true);
+  </script>
+</head>
+
+<body class="bg-background text-on-surface font-sans">
+
+  <!-- @nav:start 导航组件 -->
+  <header class="bg-surface/80 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant/30">
+    <div class="max-w-7xl mx-auto h-16 flex items-center justify-between px-6">
+      <a href="#hero" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+          <i data-lucide="gamepad" class="w-4 h-4 text-on-primary"></i>
+        </div>
+        <span class="font-bold text-lg text-on-surface">[YOUR NAME]</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="#about" class="px-3 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-md transition-colors" aria-current="page">关于我</a>
+        <a href="#experience" class="px-3 py-1.5 text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-md transition-colors">经历</a>
+        <a href="#portfolio" class="px-3 py-1.5 text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-md transition-colors">作品集</a>
+        <a href="#contact" class="px-3 py-1.5 text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-md transition-colors">联系我</a>
+      </nav>
+      <button id="btn-download-resume-nav" class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">下载简历</button>
+    </div>
+  </header>
+  <!-- @nav:end 导航组件 -->
+
+  <!-- @main-content:start -->
+  <main class="max-w-7xl mx-auto">
+    
+    <!-- Hero 区域 -->
+    <section id="hero" class="min-h-[calc(100vh-4rem)] relative flex items-center justify-center overflow-hidden">
+      <!-- 背景装饰 -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/5"></div>
+      <div class="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      
+      <!-- 内容 -->
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold text-on-surface mb-4 tracking-tight">[YOUR NAME]</h1>
+        <p class="text-2xl md:text-3xl font-semibold text-primary mb-6">游戏运营</p>
+        <p class="text-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">[一句话描述你的核心优势]</p>
+        
+        <div class="flex items-center justify-center gap-4 flex-wrap">
+          <a href="#portfolio" id="btn-view-portfolio" class="bg-primary text-on-primary px-6 py-3 rounded-lg text-base font-medium hover:opacity-90 active:scale-[0.98] transition-all inline-flex items-center gap-2 shadow-card">
+            <i data-lucide="briefcase" class="w-4 h-4"></i>
+            查看作品
+          </a>
+          <a href="#contact" id="btn-contact-me" class="bg-surface-container text-on-surface px-6 py-3 rounded-lg text-base font-medium hover:bg-surface-container-high active:scale-[0.98] transition-all inline-flex items-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            联系我
+          </a>
+        </div>
+      </div>
+      
+      <!-- 向下滚动引导 -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <a href="#about" class="flex flex-col items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+          <span class="text-xs">向下滚动</span>
+          <i data-lucide="chevron-down" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- 关于我板块 -->
+    <section id="about" class="py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-on-surface mb-8">关于我</h2>
+        <p class="text-base text-on-surface-variant leading-relaxed mb-8">
+          [PLACEHOLDER: 个人简介] 拥有多年游戏行业运营经验，专注于用户增长与社区生态建设。擅长通过数据驱动的活动策划提升用户活跃度和留存率，曾主导多个百万级用户规模的游戏项目运营工作。热爱游戏，更懂玩家。
+        </p>
+        
+        <!-- 核心技能标签 -->
+        <div class="flex flex-wrap gap-3">
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-container text-primary">用户增长</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-container text-primary">活动策划</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-container text-primary">数据分析</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-container text-primary">社区运营</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-container text-primary">内容运营</span>
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-container text-primary">用户留存</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工作经历 & 教育背景板块 -->
+    <section id="experience" class="py-20 px-6 bg-surface-container/30">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-on-surface mb-12">工作经历 & 教育背景</h2>
+        
+        <!-- Tab 切换 -->
+        <div class="flex gap-2 mb-10 border-b border-outline-variant/30">
+          <button id="tab-work" class="px-6 py-3 text-sm font-semibold text-primary border-b-2 border-primary transition-colors" data-tab="work">工作经历</button>
+          <button id="tab-education" class="px-6 py-3 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-tab="education">教育背景</button>
+        </div>
+        
+        <!-- 工作经历内容 -->
+        <div id="content-work" class="space-y-8">
+          <!-- 工作经历 1 -->
+          <div class="flex gap-6">
+            <!-- 时间线 -->
+            <div class="flex flex-col items-center">
+              <div class="w-3 h-3 rounded-full bg-primary"></div>
+              <div class="w-0.5 flex-1 bg-outline-variant mt-2"></div>
+            </div>
+            <!-- 内容卡片 -->
+            <div class="flex-1 pb-8">
+              <div class="bg-surface rounded-lg shadow-card p-5">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-base font-semibold text-on-surface">[PLACEHOLDER: 公司名称]</h3>
+                    <p class="text-sm text-primary font-medium mt-1">[PLACEHOLDER: 职位]</p>
+                  </div>
+                  <span class="text-xs text-on-surface-variant whitespace-nowrap">[PLACEHOLDER: 20xx.xx - 20xx.xx]</span>
+                </div>
+                <ul class="space-y-2 text-sm text-on-surface-variant">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-success mt-0.5 shrink-0"></i>
+                    <span>[PLACEHOLDER: 核心成果描述 1]</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-success mt-0.5 shrink-0"></i>
+                    <span>[PLACEHOLDER: 核心成果描述 2]</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-success mt-0.5 shrink-0"></i>
+                    <span>[PLACEHOLDER: 核心成果描述 3]</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 工作经历 2 -->
+          <div class="flex gap-6">
+            <!-- 时间线 -->
+            <div class="flex flex-col items-center">
+              <div class="w-3 h-3 rounded-full bg-primary"></div>
+            </div>
+            <!-- 内容卡片 -->
+            <div class="flex-1">
+              <div class="bg-surface rounded-lg shadow-card p-5">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-base font-semibold text-on-surface">[PLACEHOLDER: 公司名称]</h3>
+                    <p class="text-sm text-primary font-medium mt-1">[PLACEHOLDER: 职位]</p>
+                  </div>
+                  <span class="text-xs text-on-surface-variant whitespace-nowrap">[PLACEHOLDER: 20xx.xx - 20xx.xx]</span>
+                </div>
+                <ul class="space-y-2 text-sm text-on-surface-variant">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-success mt-0.5 shrink-0"></i>
+                    <span>[PLACEHOLDER: 核心成果描述 1]</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-success mt-0.5 shrink-0"></i>
+                    <span>[PLACEHOLDER: 核心成果描述 2]</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 教育背景内容（默认隐藏） -->
+        <div id="content-education" class="space-y-8 hidden">
+          <!-- 教育背景 1 -->
+          <div class="flex gap-6">
+            <!-- 时间线 -->
+            <div class="flex flex-col items-center">
+              <div class="w-3 h-3 rounded-full bg-primary"></div>
+              <div class="w-0.5 flex-1 bg-outline-variant mt-2"></div>
+            </div>
+            <!-- 内容卡片 -->
+            <div class="flex-1 pb-8">
+              <div class="bg-surface rounded-lg shadow-card p-5">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-base font-semibold text-on-surface">[PLACEHOLDER: 学校名称]</h3>
+                    <p class="text-sm text-primary font-medium mt-1">[PLACEHOLDER: 专业]</p>
+                  </div>
+                  <span class="text-xs text-on-surface-variant whitespace-nowrap">[PLACEHOLDER: 20xx.xx - 20xx.xx]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 教育背景 2 -->
+          <div class="flex gap-6">
+            <!-- 时间线 -->
+            <div class="flex flex-col items-center">
+              <div class="w-3 h-3 rounded-full bg-primary"></div>
+            </div>
+            <!-- 内容卡片 -->
+            <div class="flex-1">
+              <div class="bg-surface rounded-lg shadow-card p-5">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-base font-semibold text-on-surface">[PLACEHOLDER: 学校名称]</h3>
+                    <p class="text-sm text-primary font-medium mt-1">[PLACEHOLDER: 专业]</p>
+                  </div>
+                  <span class="text-xs text-on-surface-variant whitespace-nowrap">[PLACEHOLDER: 20xx.xx - 20xx.xx]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目作品集板块 -->
+    <section id="portfolio" class="py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-on-surface mb-12">项目作品集</h2>
+        
+        <!-- 作品卡片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- 作品卡片 1 -->
+          <div id="project-card-1" class="bg-surface rounded-lg shadow-card overflow-hidden cursor-pointer hover:shadow-float hover:-translate-y-1 transition-all duration-300 group" data-project-id="1">
+            <div class="aspect-video bg-surface-container relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=450&fit=crop" alt="电竞比赛活动现场" data-category="游戏娱乐" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-semibold text-on-surface mb-2">[PLACEHOLDER: 项目名称]</h3>
+              <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">[PLACEHOLDER: 项目描述，介绍项目的背景和目标]</p>
+              
+              <!-- 职责标签 -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-primary/10 text-primary">活动策划</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-primary/10 text-primary">用户增长</span>
+              </div>
+              
+              <!-- 数据成果 -->
+              <div class="flex items-center gap-2 text-sm">
+                <i data-lucide="trending-up" class="w-4 h-4 text-success"></i>
+                <span class="font-semibold text-success">DAU 提升 30%</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 作品卡片 2 -->
+          <div id="project-card-2" class="bg-surface rounded-lg shadow-card overflow-hidden cursor-pointer hover:shadow-float hover:-translate-y-1 transition-all duration-300 group" data-project-id="2">
+            <div class="aspect-video bg-surface-container relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=450&fit=crop" alt="游戏社区运营界面" data-category="游戏娱乐" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-semibold text-on-surface mb-2">[PLACEHOLDER: 项目名称]</h3>
+              <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">[PLACEHOLDER: 项目描述，介绍项目的背景和目标]</p>
+              
+              <!-- 职责标签 -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-primary/10 text-primary">社区运营</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-primary/10 text-primary">内容运营</span>
+              </div>
+              
+              <!-- 数据成果 -->
+              <div class="flex items-center gap-2 text-sm">
+                <i data-lucide="users" class="w-4 h-4 text-success"></i>
+                <span class="font-semibold text-success">社区活跃度提升 50%</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 作品卡片 3 -->
+          <div id="project-card-3" class="bg-surface rounded-lg shadow-card overflow-hidden cursor-pointer hover:shadow-float hover:-translate-y-1 transition-all duration-300 group" data-project-id="3">
+            <div class="aspect-video bg-surface-container relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b2b0a?w=800&h=450&fit=crop" alt="游戏数据分析看板" data-category="游戏娱乐" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-semibold text-on-surface mb-2">[PLACEHOLDER: 项目名称]</h3>
+              <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">[PLACEHOLDER: 项目描述，介绍项目的背景和目标]</p>
+              
+              <!-- 职责标签 -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-primary/10 text-primary">数据分析</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-primary/10 text-primary">用户留存</span>
+              </div>
+              
+              <!-- 数据成果 -->
+              <div class="flex items-center gap-2 text-sm">
+                <i data-lucide="activity" class="w-4 h-4 text-success"></i>
+                <span class="font-semibold text-success">次日留存提升 15%</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据亮点板块 -->
+    <section class="py-16 px-6 bg-primary/5">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-2">[XX] 万</div>
+            <div class="text-sm text-on-surface-variant">累计活动覆盖用户</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-2">[XX]%</div>
+            <div class="text-sm text-on-surface-variant">提升留存</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-2">[XX] 人</div>
+            <div class="text-sm text-on-surface-variant">管理社区</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-2">[XX]+ 场</div>
+            <div class="text-sm text-on-surface-variant">策划活动</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式板块 -->
+    <section id="contact" class="py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-on-surface mb-12">联系我</h2>
+        
+        <div class="bg-surface rounded-lg shadow-card p-8">
+          <!-- 联系信息 -->
+          <div class="space-y-6 mb-8">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+              </div>
+              <div>
+                <div class="text-xs text-on-surface-variant mb-1">邮箱</div>
+                <a href="mailto:[PLACEHOLDER: email@example.com]" class="text-sm font-medium text-on-surface hover:text-primary transition-colors">[PLACEHOLDER: email@example.com]</a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+              </div>
+              <div>
+                <div class="text-xs text-on-surface-variant mb-1">电话</div>
+                <a href="tel:[PLACEHOLDER: +86 xxx xxxx xxxx]" class="text-sm font-medium text-on-surface hover:text-primary transition-colors">[PLACEHOLDER: +86 xxx xxxx xxxx]</a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <i data-lucide="message-circle" class="w-5 h-5 text-primary"></i>
+              </div>
+              <div>
+                <div class="text-xs text-on-surface-variant mb-1">微信</div>
+                <span class="text-sm font-medium text-on-surface">[PLACEHOLDER: 微信号]</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 社交链接 -->
+          <div class="flex items-center gap-4 mb-8">
+            <span class="text-sm text-on-surface-variant">社交媒体：</span>
+            <a href="#" id="link-github" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-on-surface-variant">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+            <a href="#" id="link-linkedin" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-on-surface-variant">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+          </div>
+          
+          <!-- 下载简历按钮 -->
+          <button id="btn-download-resume" class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg text-base font-medium hover:opacity-90 active:scale-[0.98] transition-all inline-flex items-center justify-center gap-2">
+            <i data-lucide="download" class="w-5 h-5"></i>
+            下载简历
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 px-6 border-t border-outline-variant/30">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-on-surface-variant">© 2024 [姓名]. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-on-surface-variant">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-on-surface-variant">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+  <!-- @main-content:end -->
+
+  <!-- 项目详情 Modal -->
+  <div id="modal-project-detail" class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 hidden">
+    <div class="bg-surface rounded-xl shadow-dialog max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-surface border-b border-outline-variant/30 px-6 py-4 flex items-center justify-between">
+        <h3 id="modal-title" class="text-lg font-semibold text-on-surface">[PLACEHOLDER: 项目名称]</h3>
+        <button id="btn-close-modal" class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center transition-colors">
+          <i data-lucide="x" class="w-5 h-5 text-on-surface-variant"></i>
+        </button>
+      </div>
+      
+      <div class="p-6 space-y-6">
+        <!-- 项目大图 -->
+        <div class="aspect-video rounded-lg overflow-hidden bg-surface-container">
+          <img id="modal-image" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&h=675&fit=crop" alt="项目封面图" data-category="游戏娱乐" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- 项目描述 -->
+        <div>
+          <h4 class="text-sm font-semibold text-on-surface mb-2">项目描述</h4>
+          <p id="modal-description" class="text-sm text-on-surface-variant leading-relaxed">[PLACEHOLDER: 详细的项目描述，包括项目背景、目标、实施过程等信息]</p>
+        </div>
+        
+        <!-- 个人职责 -->
+        <div>
+          <h4 class="text-sm font-semibold text-on-surface mb-3">个人职责</h4>
+          <ul id="modal-responsibilities" class="space-y-2">
+            <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+              <i data-lucide="circle-check" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+              <span>[PLACEHOLDER: 职责描述 1]</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+              <i data-lucide="circle-check" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+              <span>[PLACEHOLDER: 职责描述 2]</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+              <i data-lucide="circle-check" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+              <span>[PLACEHOLDER: 职责描述 3]</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 数据成果 -->
+        <div>
+          <h4 class="text-sm font-semibold text-on-surface mb-3">关键数据成果</h4>
+          <div id="modal-metrics" class="grid grid-cols-2 gap-4">
+            <div class="bg-primary/5 rounded-lg p-4 text-center">
+              <div class="text-2xl font-bold text-primary mb-1">[XX]%</div>
+              <div class="text-xs text-on-surface-variant">[PLACEHOLDER: 指标名称]</div>
+            </div>
+            <div class="bg-primary/5 rounded-lg p-4 text-center">
+              <div class="text-2xl font-bold text-primary mb-1">[XX] 万</div>
+              <div class="text-xs text-on-surface-variant">[PLACEHOLDER: 指标名称]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+      // 初始化 Lucide 图标
+      lucide.createIcons();
+      
+      // Tab 切换逻辑
+      $('#tab-work, #tab-education').on('click', function() {
+        const tab = $(this).data('tab');
+        
+        // 更新 Tab 样式
+        $('#tab-work, #tab-education').removeClass('text-primary border-b-2 border-primary font-semibold').addClass('text-on-surface-variant font-medium');
+        $(this).removeClass('text-on-surface-variant font-medium').addClass('text-primary border-b-2 border-primary font-semibold');
+        
+        // 切换内容
+        if (tab === 'work') {
+          $('#content-work').removeClass('hidden');
+          $('#content-education').addClass('hidden');
+        } else {
+          $('#content-work').addClass('hidden');
+          $('#content-education').removeClass('hidden');
+        }
+      });
+      
+      // 作品卡片点击打开 Modal
+      $('[id^="project-card-"]').on('click', function() {
+        const projectId = $(this).data('project-id');
+        console.log('打开项目详情:', projectId);
+        $('#modal-project-detail').removeClass('hidden');
+      });
+      
+      // 关闭 Modal
+      $('#btn-close-modal, #modal-project-detail').on('click', function(e) {
+        if (e.target === this || $(e.target).closest('#btn-close-modal').length) {
+          $('#modal-project-detail').addClass('hidden');
+        }
+      });
+      
+      // 阻止 Modal 内容区域点击事件冒泡
+      $('#modal-project-detail > div').on('click', function(e) {
+        e.stopPropagation();
+      });
+      
+      // 平滑滚动
+      $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+        const target = $($(this).attr('href'));
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top - 80
+          }, 600);
+        }
+      });
+      
+      // 下载简历按钮
+      $('#btn-download-resume, #btn-download-resume-nav').on('click', function() {
+        console.log('触发简历下载功能');
+        // 占位：实际应触发 PDF 下载
+      });
+      
+      // 社交链接
+      $('#link-github, #link-linkedin').on('click', function(e) {
+        e.preventDefault();
+        console.log('打开社交平台链接');
+        // 占位：实际应跳转到对应平台
+      });
+    });
+  </script>
+  
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
