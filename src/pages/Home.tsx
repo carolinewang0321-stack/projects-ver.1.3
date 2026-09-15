@@ -177,11 +177,11 @@ export default function Home() {
           <div className="contact-grid reveal">
             <div className="contact-item">
               <span className="mono rd">EMAIL</span>
-              <a className="contact-link" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
+              <span className="contact-link">{PROFILE.email}</span>
             </div>
             <div className="contact-item">
               <span className="mono rd">PHONE</span>
-              <a className="contact-link" href={`tel:${PROFILE.phone}`}>{PROFILE.phone}</a>
+              <span className="contact-link">{PROFILE.phone}</span>
             </div>
           </div>
         </div>
