@@ -27,7 +27,7 @@ export const EDUCATION = [
     degree: "交换留学",
   },
   {
-    period: "2025.09 — 至今",
+    period: "2025.09 — 2027.06",
     school: "广东外语外贸大学",
     degree: "日语口译 · 硕士在读",
   },
@@ -45,19 +45,19 @@ export const SKILLS = [
     num: "01",
     cat: "运营核心",
     items: [
-      { name: "社区运营", level: 88 },
+      { name: "社媒运营", level: 88 },
       { name: "活动策划", level: 90 },
       { name: "用户运营", level: 85 },
-      { name: "版本运营", level: 80 },
+      { name: "内容运营", level: 86 },
     ],
   },
   {
     num: "02",
     cat: "数据与分析",
     items: [
-      { name: "数据分析", level: 82 },
-      { name: "用户增长", level: 75 },
-      { name: "社媒运营", level: 86 },
+      { name: "竞品分析", level: 80 },
+      { name: "用户增长", level: 82 },
+      { name: "社媒逻辑", level: 84 },
     ],
   },
   {
@@ -84,7 +84,7 @@ export const SKILLS = [
 
 export const EXPERIENCE = [
   {
-    period: "2026.03 — 至今",
+    period: "2026.03 — 2026.07",
     company: "Olaparty（奥拉帕迪）",
     role: "MKT 日语运营 · 实习",
     points: [
@@ -96,7 +96,7 @@ export const EXPERIENCE = [
     ],
   },
   {
-    period: "2023.09",
+    period: "2023.09 — 2024.06",
     company: "快手科技",
     role: "Kwai Sports 葡语运营 · 实习",
     points: [
