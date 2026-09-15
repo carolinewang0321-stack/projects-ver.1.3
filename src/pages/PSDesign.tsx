@@ -25,7 +25,6 @@ const banners = [
   { src: "/ps/work-24.jpg", title: "签名档 · 魔卡少女樱 3" },
   { src: "/ps/work-25.jpg", title: "影视宣传横幅 · 杨蓉" },
   { src: "/ps/work-26.jpg", title: "影视宣传横幅 · 杨幂" },
-  { src: "/ps/work-27.jpg", title: "影视宣传横幅 · 杨幂 2" },
   { src: "/ps/work-28.jpg", title: "签名档 · 魔卡少女樱 4" },
 ];
 
@@ -38,7 +37,7 @@ const avatars = [
 
 // 第三类：设计框（方形主题设计图，尺寸与横幅不同）
 const frames = [
-  { src: "/ps/design-01.jpg", title: "设计框 · Apink 主题" },
+  { src: "/ps/design-01.jpg", title: "设计框·拼贴" },
 ];
 
 export default function PSDesign() {
