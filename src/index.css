@@ -423,13 +423,35 @@ a { color: inherit; }
   transform-origin: center;
   animation: ribbon-drift ease-in-out infinite;
 }
-.rb-1 { top: -6%; right: -8%; width: min(46vw, 460px); --rb-op: 0.2; animation-duration: 16s; }
-.rb-2 { top: 34%; left: -9%; width: min(38vw, 380px); --rb-op: 0.14; animation-duration: 20s; animation-delay: -6s; transform: scaleX(-1); }
-.rb-3 { top: 72%; right: -7%; width: min(42vw, 420px); --rb-op: 0.15; animation-duration: 24s; animation-delay: -12s; }
+.rb-1 { top: -4%; right: -6%; width: min(48vw, 480px); --rb-op: 0.2; animation-duration: 16s; }
+.rb-2 { top: 30%; left: -9%; width: min(40vw, 400px); --rb-op: 0.14; animation-duration: 20s; animation-delay: -6s; transform: scaleX(-1); }
+.rb-3 { bottom: -6%; right: -5%; width: min(46vw, 460px); --rb-op: 0.16; animation-duration: 24s; animation-delay: -12s; transform: rotate(16deg); }
+.rb-4 { top: 64%; right: -10%; width: min(36vw, 360px); --rb-op: 0.11; animation-duration: 26s; animation-delay: -9s; transform: rotate(-8deg); }
+.rb-5 { top: -8%; left: -7%; width: min(40vw, 400px); --rb-op: 0.15; animation-duration: 22s; animation-delay: -4s; transform: rotate(-14deg); }
 
 @keyframes ribbon-drift {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
   50%      { transform: translate3d(-1%, 2%, 0) rotate(2.5deg); }
+}
+
+/* 散落的枫叶点缀（四周，营造风感） */
+.lf {
+  position: absolute;
+  width: clamp(20px, 3vw, 34px);
+  opacity: 0.3;
+  filter: drop-shadow(0 6px 12px rgba(150, 10, 25, 0.2));
+  animation: leaf-fall ease-in-out infinite;
+}
+.lf-1 { top: 14%; left: 16%; animation-duration: 13s; }
+.lf-2 { top: 10%; right: 30%; animation-duration: 17s; animation-delay: -4s; transform: rotate(24deg); }
+.lf-3 { bottom: 18%; left: 26%; animation-duration: 15s; animation-delay: -8s; transform: rotate(-18deg); }
+.lf-4 { bottom: 12%; right: 18%; animation-duration: 19s; animation-delay: -2s; }
+.lf-5 { top: 56%; left: 8%; animation-duration: 21s; animation-delay: -11s; transform: rotate(34deg); }
+.lf-6 { top: 24%; right: 8%; animation-duration: 16s; animation-delay: -6s; transform: rotate(-28deg); }
+
+@keyframes leaf-fall {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(1.5%, 3%, 0) rotate(14deg); }
 }
 
 /* ============================ 头图 Hero 飘带装饰 ============================ */

@@ -108,6 +108,40 @@ export default function RibbonBGs() {
         <polygon points="30,70 66,58 52,96" fill="#ff6d78" opacity="0.8" />
         <polygon points="-6,120 30,130 4,152" fill="#e63946" opacity="0.7" />
       </svg>
+
+      {/* 6 · 散落枫叶点缀（四周，形成"风"的氛围） */}
+      <Leaf c="lf lf-1" />
+      <Leaf c="lf lf-2" />
+      <Leaf c="lf lf-3" />
+      <Leaf c="lf lf-4" />
+      <Leaf c="lf lf-5" />
+      <Leaf c="lf lf-6" />
     </div>
+  );
+}
+
+/**
+ * 一枚写意小枫叶（简化概括形态，色深红·朱红渐变）
+ */
+function Leaf({ c }: { c: string }) {
+  return (
+    <svg className={c} viewBox="0 0 60 60" aria-hidden="true">
+      <defs>
+        <linearGradient id={`leafG-${c.replace(/[^a-z0-9]/gi, "")}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#ff5a66" />
+          <stop offset="1" stopColor="#c62636" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M30,4 C40,12 50,20 54,28 C44,26 36,26 30,30
+           C24,26 16,26 6,28 C10,20 20,12 30,4 Z"
+        fill={`url(#leafG-${c.replace(/[^a-z0-9]/gi, "")})`}
+      />
+      <path d="M30,8 L30,56" stroke="#a81c2c" strokeWidth="2.5" strokeLinecap="round" />
+      <polygon points="30,14 22,24 30,22" fill="#e63946" />
+      <polygon points="30,22 40,32 30,30" fill="#e63946" />
+      <polygon points="30,30 20,40 30,38" fill="#e63946" />
+      <polygon points="30,42 38,50 30,48" fill="#e63946" />
+    </svg>
   );
 }
