@@ -356,9 +356,9 @@ a { color: inherit; }
 /* 封面裁切隐藏底部署名 */
 .ps-frame { margin: 0; border: 1px solid var(--line); background: var(--surface); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .ps-frame:hover { transform: scale(1.02); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
-.ps-frame.banner img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 18%; }
+.ps-frame img { width: 100%; height: auto; display: block; }
 .ps-frame.avatar img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 22%; }
-.ps-frame figcaption { padding: 12px 14px; font-size: 0.75rem; color: var(--aink); border-top: 1px solid var(--line); }
+.ps-frame figcaption { padding: 12px 14px; font-size: 0.78rem; color: var(--aink); border-top: 1px solid var(--line); }
 
 /* ============================ 三亚团建攻略 ============================ */
 .sanya-cover { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
