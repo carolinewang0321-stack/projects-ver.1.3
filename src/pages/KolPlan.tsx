@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import PageShell from "../components/PageShell";
 
 /* ============================================================
@@ -70,6 +71,18 @@ const abilities = [
 ];
 
 export default function KolPlan() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => e.target.classList.add("inview"));
+      },
+      { threshold: 0.08 }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <PageShell
       back="/"
