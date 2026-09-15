@@ -406,3 +406,66 @@ a { color: inherit; }
   .hero-title .bl { font-size: clamp(2.4rem, 14vw, 3.6rem); }
   .section { padding: 56px 0; }
 }
+
+/* ============================ 动漫感红色飘带背景 ============================ */
+/* 全局背景层：写意笔触 · 毛边撕裂 · 深浅渐变 · 静态叠加 in SVG（动画仅轻微呼吸） */
+.ribbon-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.rb {
+  position: absolute;
+  opacity: var(--rb-op, 0.16);
+  filter: drop-shadow(0 10px 24px rgba(150, 10, 25, 0.28));
+  transform-origin: center;
+  animation: ribbon-drift ease-in-out infinite;
+}
+.rb-1 { top: -6%; right: -8%; width: min(46vw, 460px); --rb-op: 0.2; animation-duration: 16s; }
+.rb-2 { top: 34%; left: -9%; width: min(38vw, 380px); --rb-op: 0.14; animation-duration: 20s; animation-delay: -6s; transform: scaleX(-1); }
+.rb-3 { top: 72%; right: -7%; width: min(42vw, 420px); --rb-op: 0.15; animation-duration: 24s; animation-delay: -12s; }
+
+@keyframes ribbon-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(-1%, 2%, 0) rotate(2.5deg); }
+}
+
+/* ============================ 头图 Hero 飘带装饰 ============================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero-ribbons {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hr { position: absolute; filter: drop-shadow(0 14px 30px rgba(150, 10, 25, 0.3)); }
+.hr-main {
+  top: -12%;
+  right: -4%;
+  width: min(52vw, 520px);
+  opacity: 0.22;
+  animation: hr-sway 14s ease-in-out infinite;
+  transform-origin: center;
+}
+.hr-extra {
+  bottom: -18%;
+  left: -6%;
+  width: min(40vw, 400px);
+  opacity: 0.12;
+  transform: scaleX(-1) rotate(-18deg);
+  animation: hr-sway 18s ease-in-out infinite reverse;
+}
+
+@keyframes hr-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(4deg); }
+}
+/* 头图内容层保持在飘带之上 */
+.hero-inner, .hero-upper, .hero-bottom, .hero-title, .hero-sub, .btn-cta { position: relative; z-index: 1; }
+}

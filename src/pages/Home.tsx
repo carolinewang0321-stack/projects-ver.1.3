@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   PROFILE, EDUCATION, LANGUAGE, SKILLS, EXPERIENCE, PORTFOLIO,
 } from "../data";
+import HeroRibbons from "../components/HeroRibbons";
 
 export default function Home() {
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home() {
     <div className="home">
       {/* ================= HERO ================= */}
       <section className="hero">
+        <HeroRibbons />
         <div className="hero-upper">
           <div className="hero-left">
             <h1 className="hero-name">

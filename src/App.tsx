@@ -7,10 +7,12 @@ import Genshin from "./pages/Genshin";
 import KolPlan from "./pages/KolPlan";
 import DifyPlan from "./pages/DifyPlan";
 import Sanya from "./pages/Sanya";
+import RibbonBGs from "./components/RibbonBGs";
 
 export default function App() {
   return (
     <HashRouter>
+      <RibbonBGs />
       <Navbar />
       <main className="app-main">
         <Routes>
