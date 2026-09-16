@@ -96,7 +96,14 @@ a { color: inherit; }
 }
 .icon-btn:hover { border-color: var(--red); }
 .nav-actions { display: flex; align-items: center; gap: 8px; }
-.menu-btn { display: none; }
+.menu-btn {
+  display: none; background: none; border: 1px solid var(--line); color: var(--ink);
+  font-family: "Inter", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  height: 38px; padding: 0 16px; cursor: pointer; text-decoration: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.menu-btn:hover { border-color: var(--red); background: color-mix(in srgb, var(--red) 8%, transparent); }
 
 /* 全屏移动菜单 */
 .mobile-menu {
@@ -408,7 +415,7 @@ a { color: inherit; }
 /* ============================ 响应式 ============================ */
 @media (max-width: 900px){
   .nav-links { display: none; }
-  .menu-btn { display: grid; }
+  .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
 }
 @media (max-width: 640px){
   .hero { min-height: auto; padding-top: 120px; }
