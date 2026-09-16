@@ -21,9 +21,9 @@ export const SOCIALS = {
     name: "小红书",
     note: "XIAOHONGSHU",
     links: [
-      { label: "小红书笔记 ①", url: "https://xhslink.cn/o/2tf0qnn42es" },
-      { label: "小红书笔记 ②", url: "https://xhslink.cn/o/7OylQFBq2zO" },
-      { label: "小红书笔记 ③", url: "https://xhslink.cn/o/4160gnBU46h" },
+      { label: "笔记①", url: "https://xhslink.cn/o/2tf0qnn42es" },
+      { label: "笔记②", url: "https://xhslink.cn/o/7OylQFBq2zO" },
+      { label: "笔记③", url: "https://xhslink.cn/o/4160gnBU46h" },
     ],
   },
   bilibili: {

@@ -191,8 +191,7 @@ export default function Home() {
                 <div className="soc-links">
                   {SOCIALS.xiaohongshu.links.map((l) => (
                     <a key={l.url} className="soc-link" href={l.url} target="_blank" rel="noopener noreferrer">
-                      <span className="soc-name">{SOCIALS.xiaohongshu.name}</span>
-                      <span className="soc-label">{l.label}</span>
+                      {l.label}
                     </a>
                   ))}
                 </div>
@@ -202,8 +201,7 @@ export default function Home() {
                 <div className="soc-links">
                   {SOCIALS.bilibili.links.map((l) => (
                     <a key={l.url} className="soc-link" href={l.url} target="_blank" rel="noopener noreferrer">
-                      <span className="soc-name">{SOCIALS.bilibili.name}</span>
-                      <span className="soc-label">{l.label}</span>
+                      {l.label}
                     </a>
                   ))}
                 </div>
