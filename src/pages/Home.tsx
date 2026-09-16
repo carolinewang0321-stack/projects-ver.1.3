@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  PROFILE, EDUCATION, LANGUAGE, SKILLS, EXPERIENCE, PORTFOLIO,
+  PROFILE, EDUCATION, LANGUAGE, SKILLS, EXPERIENCE, PORTFOLIO, SOCIALS,
 } from "../data";
 
 
@@ -175,13 +175,39 @@ export default function Home() {
         <div className="container">
           <SectionHead num="05" title="联系" />
           <div className="contact-grid reveal">
-            <div className="contact-item">
-              <span className="mono rd">EMAIL</span>
-              <span className="contact-link">{PROFILE.email}</span>
+            <div className="contact-col">
+              <div className="contact-item">
+                <span className="mono rd">EMAIL</span>
+                <span className="contact-link">{PROFILE.email}</span>
+              </div>
+              <div className="contact-item">
+                <span className="mono rd">PHONE</span>
+                <span className="contact-link">{PROFILE.phone}</span>
+              </div>
             </div>
-            <div className="contact-item">
-              <span className="mono rd">PHONE</span>
-              <span className="contact-link">{PROFILE.phone}</span>
+            <div className="contact-col">
+              <div className="contact-item">
+                <span className="mono rd">{SOCIALS.xiaohongshu.note}</span>
+                <div className="soc-links">
+                  {SOCIALS.xiaohongshu.links.map((l) => (
+                    <a key={l.url} className="soc-link" href={l.url} target="_blank" rel="noopener noreferrer">
+                      <span className="soc-name">{SOCIALS.xiaohongshu.name}</span>
+                      <span className="soc-label">{l.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="contact-item">
+                <span className="mono rd">{SOCIALS.bilibili.note}</span>
+                <div className="soc-links">
+                  {SOCIALS.bilibili.links.map((l) => (
+                    <a key={l.url} className="soc-link" href={l.url} target="_blank" rel="noopener noreferrer">
+                      <span className="soc-name">{SOCIALS.bilibili.name}</span>
+                      <span className="soc-label">{l.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

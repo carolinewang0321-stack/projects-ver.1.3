@@ -15,6 +15,24 @@ export const PROFILE = {
   phone: "18023478917",
 };
 
+// 联系 / 社交媒体链接（小红书为笔记合集，Bilibili 为个人主页）
+export const SOCIALS = {
+  xiaohongshu: {
+    name: "小红书",
+    note: "XIAOHONGSHU",
+    links: [
+      { label: "小红书笔记 ①", url: "https://xhslink.cn/o/2tf0qnn42es" },
+      { label: "小红书笔记 ②", url: "https://xhslink.cn/o/7OylQFBq2zO" },
+      { label: "小红书笔记 ③", url: "https://xhslink.cn/o/4160gnBU46h" },
+    ],
+  },
+  bilibili: {
+    name: "Bilibili",
+    note: "BILIBILI",
+    links: [{ label: "我的 Bilibili 主页", url: "https://space.bilibili.com/14385889" }],
+  },
+};
+
 export const EDUCATION = [
   {
     period: "2020.09 — 2024.06",
@@ -136,7 +154,7 @@ export const GAME_EXPERIENCE = [
   {
     cat: "换装向",
     games: [
-      { name: "暖暖系列", tag: "系列玩家" },
+      { name: "暖暖系列", tag: "奇迹暖暖 · 无限暖暖 · 暖暖环游世界" },
       { name: "以闪亮之名", tag: "" },
     ],
   },
