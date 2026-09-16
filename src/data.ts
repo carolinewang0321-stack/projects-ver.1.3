@@ -108,37 +108,94 @@ export const EXPERIENCE = [
   },
 ];
 
+export const GAME_EXPERIENCE = [
+  {
+    cat: "RPG 手游",
+    note: "重度 / 长线养成的核心品类",
+    games: [
+      { name: "洛克王国：世界", tag: "开服 · 通行证每期必氪" },
+      { name: "原神", tag: "6 年+ · 月卡党 · 全剧情 · 成就 1500+" },
+      { name: "崩坏：星穹铁道", tag: "开服 · 月卡党 · 货币战争收集党" },
+      { name: "绝区零", tag: "开服玩家" },
+      { name: "无限暖暖", tag: "开服 · Lv.90+" },
+      { name: "重返未来：1999", tag: "长线体验" },
+      { name: "燕云十六声", tag: "深度体验" },
+      { name: "终末地", tag: "测试 / 关注" },
+      { name: "异环", tag: "测试 / 关注" },
+      { name: "哈利波特魔法觉醒", tag: "长线体验" },
+    ],
+  },
+  {
+    cat: "叙事向与乙女向",
+    games: [
+      { name: "世界之外", tag: "" },
+      { name: "恋与深空", tag: "" },
+      { name: "橙光", tag: "" },
+    ],
+  },
+  {
+    cat: "换装向",
+    games: [
+      { name: "暖暖系列", tag: "系列资深玩家" },
+      { name: "以闪亮之名", tag: "" },
+    ],
+  },
+  {
+    cat: "音游",
+    note: "节奏 / 手速与视觉反馈",
+    games: [
+      { name: "Phigros", tag: "入坑 4 年 · rks 15+" },
+      { name: "Lanota", tag: "" },
+      { name: "Bang Dream!", tag: "" },
+      { name: "Muse Dash", tag: "" },
+    ],
+  },
+  {
+    cat: "MOBA",
+    games: [
+      { name: "王者荣耀", tag: "" },
+    ],
+  },
+];
+
 export const PORTFOLIO = [
   {
     num: "01",
+    title: "游戏经历",
+    desc: "多品类资深玩家，横跨 RPG、乙女、换装、音游与 MOBA 的核心体验与偏好。",
+    tags: ["游戏", "玩家", "多品类"],
+    route: "/game-experience",
+  },
+  {
+    num: "02",
     title: "PS 设计作品",
     desc: "涵盖应援横幅、签名档、头像等非商业设计作品。",
     tags: ["Photoshop", "视觉设计", "二次元"],
     route: "/ps-design",
   },
   {
-    num: "02",
+    num: "03",
     title: "《原神》游戏小结",
     desc: "从玩法、内容、商业化等多维度拆解《原神》的产品小结。",
     tags: ["游戏分析", "笔记", "二次元"],
     route: "/genshin-analysis",
   },
   {
-    num: "03",
+    num: "04",
     title: "社媒 KOL 运营方案",
     desc: "实习期间针对社媒长内容平台的 KOL 拓展与账号运营方案总结。",
     tags: ["方案", "KOL", "社媒运营"],
     route: "/kol-plan",
   },
   {
-    num: "04",
+    num: "05",
     title: "账号运营迭代方案",
     desc: "基于 Dify 工作流的多平台账号运营方案迭代设计。",
     tags: ["方案", "Dify", "自动化"],
     route: "/dify-plan",
   },
   {
-    num: "05",
+    num: "06",
     title: "三亚团建攻略",
     desc: "面向年轻群体的三亚团建旅游攻略，纯干货向内容创作。",
     tags: ["内容创作", "攻略", "旅游"],

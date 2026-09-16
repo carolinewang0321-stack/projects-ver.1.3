@@ -16,6 +16,7 @@ const isDev = process.env.COZE_PROJECT_ENV !== 'PROD';
 export async function setupViteMiddleware(app: Application) {
   const vite = await createViteServer({
     ...viteConfig,
+    configFile: false,
     server: {
       ...viteConfig.server,
       middlewareMode: true,
