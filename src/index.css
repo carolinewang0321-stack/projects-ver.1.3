@@ -226,9 +226,9 @@ a { color: inherit; }
 .contact-link:hover { color: var(--red); }
 .soc-links { display: grid; gap: 8px; }
 .soc-link {
-  display: flex; align-items: baseline; gap: 10px; text-decoration: none;
-  border: 1px solid var(--line); padding: 9px 12px; font-size: 0.9rem;
-  color: var(--ink); transition: border-color 0.2s, background-color 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
+  border: 1px solid var(--line); padding: 9px 12px; font-size: 0.9rem; font-weight: 700;
+  color: var(--ink); transition: border-color 0.2s, background-color 0.2s; text-align: center;
 }
 .soc-link:hover { border-color: var(--red); background: color-mix(in srgb, var(--red) 6%, transparent); }
 .soc-name { flex: none; font-family: "Space Mono", monospace; font-weight: 700; color: var(--red); font-size: 0.78rem; }
