@@ -184,22 +184,22 @@ export default function Home() {
                 <span className="mono rd">PHONE</span>
                 <span className="contact-link">{PROFILE.phone}</span>
               </div>
-            </div>
-            <div className="contact-col">
               <div className="contact-item">
-                <span className="mono rd">{SOCIALS.xiaohongshu.note}</span>
+                <span className="mono rd">{SOCIALS.bilibili.note}</span>
                 <div className="soc-links">
-                  {SOCIALS.xiaohongshu.links.map((l) => (
+                  {SOCIALS.bilibili.links.map((l) => (
                     <a key={l.url} className="soc-link" href={l.url} target="_blank" rel="noopener noreferrer">
                       {l.label}
                     </a>
                   ))}
                 </div>
               </div>
+            </div>
+            <div className="contact-col">
               <div className="contact-item">
-                <span className="mono rd">{SOCIALS.bilibili.note}</span>
+                <span className="mono rd">{SOCIALS.xiaohongshu.note}</span>
                 <div className="soc-links">
-                  {SOCIALS.bilibili.links.map((l) => (
+                  {SOCIALS.xiaohongshu.links.map((l) => (
                     <a key={l.url} className="soc-link" href={l.url} target="_blank" rel="noopener noreferrer">
                       {l.label}
                     </a>
