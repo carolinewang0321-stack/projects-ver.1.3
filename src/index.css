@@ -203,16 +203,17 @@ a { color: inherit; }
 .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 @media (max-width: 900px){ .works-grid{ grid-template-columns: 1fr; } }
 .work-card {
-  display: block; text-decoration: none; color: var(--ink);
+  display: flex; flex-direction: column; height: 100%;
+  text-decoration: none; color: var(--ink);
   padding: 24px 22px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 70%, transparent);
-  position: relative; overflow: hidden;
+  position: relative; overflow: hidden; box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .work-card:hover { transform: scale(1.02); box-shadow: 0 14px 34px rgba(0,0,0,0.12); border-color: var(--red-soft); }
-.work-num { font-family: "Space Mono", monospace; font-size: 0.85rem; }
-.work-title { font-size: 1.12rem; font-weight: 800; margin: 10px 0 8px; }
-.work-desc { font-size: 0.89rem; color: var(--aink); margin: 0 0 14px; }
-.work-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.work-num { font-family: "Space Mono", monospace; font-size: 0.85rem; color: var(--red); }
+.work-title { font-size: 1.12rem; font-weight: 800; color: var(--ink); margin: 10px 0 8px; letter-spacing: -0.01em; }
+.work-desc { font-size: 0.89rem; color: var(--aink); margin: 0; }
+.work-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 16px; }
 .work-tag { border: 1px solid var(--line); padding: 3px 10px; font-size: 0.72rem; font-family: "Space Mono", monospace; }
 .work-tag:nth-child(1) { border-color: var(--red); color: var(--red); }
 
@@ -272,7 +273,7 @@ a { color: inherit; }
 .pay-table thead th { background: color-mix(in srgb, var(--red) 9%, transparent); color: var(--ink); font-weight: 700; white-space: nowrap; }
 .pay-table tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
 .pay-table td { color: var(--aink); }
-.pay-table tbody tr:last-child th, .pay-table tbody tr:last-child td { border-bottom: 0; }
+.pay-table.x-pay tbody tr:last-child th, .pay-table.x-pay tbody tr:last-child td { border-bottom: 1px solid var(--line); }
 
 /* KOL 平台卡片 */
 .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -401,6 +402,11 @@ a { color: inherit; }
 .x-pay th, .x-pay td { text-align: center; padding: 9px 12px; border: 1px solid var(--line); vertical-align: middle; }
 .x-pay thead th { background: color-mix(in srgb, var(--red) 9%, transparent); color: var(--ink); font-weight: 700; white-space: nowrap; }
 .x-pay tbody th { background: color-mix(in srgb, var(--surface) 50%, transparent); color: var(--ink); font-weight: 600; white-space: nowrap; }
+/* X 分析长段落排版优化 */
+.x-sec p { line-height: 1.95; margin: 0 0 18px; }
+.x-sec p:last-child { margin-bottom: 0; }
+.x-sec .x-table { margin-top: 4px; }
+.x-sec .dot-list { line-height: 1.8; }
 
 /* ============================ 三亚团建攻略 ============================ */
 .sanya-cover { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }

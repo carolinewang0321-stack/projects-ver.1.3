@@ -71,7 +71,7 @@ export default function GenshinX() {
 
   return (
     <PageShell back="/" title="《原神》日本社媒（X）分析小结" sub="GENSHIN JP X · 日本市场社媒运营分析">
-      <section className="section gx-sec">
+      <section className="section x-sec">
         <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> X账号概览</h3>
         <div className="x-table reveal">
           <table className="pay-table x-pay">
@@ -117,10 +117,6 @@ export default function GenshinX() {
         <p className="reveal">
           2026年7月8日，原神X日服账号突破400万粉丝，特地发布纪念贺图。
         </p>
-      </section>
-
-      <section className="section gx-sec">
-        <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> 内容策略</h3>
         <p className="reveal">
           2024年11月起，原神日服X账号不再预告游戏内活动，将活动通知迁移至HoYoLAB官方频道。这可能是因为X的发文限制，但我认为也意味着X的角色正从信息分发转向话题引爆与品牌塑造，而HoYoLAB承担信息沉淀与私域运营的职能。
         </p>
@@ -138,6 +134,10 @@ export default function GenshinX() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="section x-sec">
+        <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> 内容策略</h3>
         <div className="x-table reveal">
           <table className="pay-table x-pay">
             <thead>
@@ -160,7 +160,7 @@ export default function GenshinX() {
         </p>
       </section>
 
-      <section className="section gx-sec">
+      <section className="section x-sec">
         <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> 信息爆发帖分析</h3>
         <div className="x-table reveal">
           <table className="pay-table x-pay">
@@ -190,7 +190,7 @@ export default function GenshinX() {
         </p>
       </section>
 
-      <section className="section gx-sec">
+      <section className="section x-sec">
         <h3 className="detail-sec-title reveal"><span className="rd mono">{next()}</span> 联动与线下活动的社媒放大</h3>
         <div className="x-table reveal">
           <table className="pay-table x-pay">
