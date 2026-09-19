@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import GameExperience from "./pages/GameExperience";
 import PSDesign from "./pages/PSDesign";
 import Genshin from "./pages/Genshin";
+import GenshinX from "./pages/GenshinX";
 import KolPlan from "./pages/KolPlan";
 import DifyPlan from "./pages/DifyPlan";
 import Sanya from "./pages/Sanya";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/game-experience" element={<GameExperience />} />
           <Route path="/ps-design" element={<PSDesign />} />
           <Route path="/genshin-analysis" element={<Genshin />} />
+          <Route path="/genshin-x" element={<GenshinX />} />
           <Route path="/kol-plan" element={<KolPlan />} />
           <Route path="/dify-plan" element={<DifyPlan />} />
           <Route path="/sanya-guide" element={<Sanya />} />

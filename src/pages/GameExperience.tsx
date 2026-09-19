@@ -24,7 +24,7 @@ export default function GameExperience() {
       </p>
 
       {GAME_EXPERIENCE.map((cat) => (
-        <section className="section" key={cat.cat}>
+        <section className="section gx-sec" key={cat.cat}>
           <div className="game-head reveal">
             <h3 className="detail-sec-title">
               {cat.cat}
@@ -33,9 +33,12 @@ export default function GameExperience() {
           </div>
           <ul className="game-list reveal">
             {cat.games.map((g) => (
-              <li className="game-item" key={g.name}>
-                <span className="game-name">{g.name}</span>
-                {g.tag && <span className="game-tag mono">{g.tag}</span>}
+              <li className={g.desc ? "game-item game-item-rich" : "game-item"} key={g.name}>
+                <div className="game-line">
+                  <span className="game-name">{g.name}</span>
+                  {g.tag && <span className="game-tag mono">{g.tag}</span>}
+                </div>
+                {g.desc && <p className="game-desc">{g.desc}</p>}
               </li>
             ))}
           </ul>

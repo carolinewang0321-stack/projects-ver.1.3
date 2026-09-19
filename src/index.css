@@ -387,6 +387,14 @@ a { color: inherit; }
 .game-item { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; border: 1px solid var(--line); border-left: 3px solid var(--red); padding: 12px 16px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
 .game-name { font-weight: 700; font-size: 0.96rem; }
 .game-tag { font-family: var(--mono); font-size: 0.76rem; color: var(--aink); white-space: nowrap; }
+/* RPG 前四游戏带描述的富条 */
+.game-item-rich { display: block; grid-column: 1 / -1; }
+.game-item-rich .game-line { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+.game-desc { margin: 10px 0 0; padding-left: 2px; font-size: 0.87rem; line-height: 1.75; color: var(--aink); }
+/* 游戏经历分类缩小组块间距 */
+.gx-sec { padding-top: 40px; padding-bottom: 40px; }
+@media (max-width: 720px){ .gx-sec { padding-top: 28px; padding-bottom: 28px; } }
+.game-tag { font-family: var(--mono); font-size: 0.76rem; color: var(--aink); white-space: nowrap; }
 
 /* ============================ 三亚团建攻略 ============================ */
 .sanya-cover { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
