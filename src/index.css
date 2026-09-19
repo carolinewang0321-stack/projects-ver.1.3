@@ -384,17 +384,23 @@ a { color: inherit; }
 .game-note { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--aink); }
 .game-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0; padding: 0; }
 @media (max-width: 720px){ .game-list { grid-template-columns: 1fr; } }
-.game-item { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; border: 1px solid var(--line); border-left: 3px solid var(--red); padding: 12px 16px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.game-item { display: block; border: 1px solid var(--line); border-left: 3px solid var(--red); padding: 12px 16px; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.game-line { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
 .game-name { font-weight: 700; font-size: 0.96rem; }
-.game-tag { font-family: var(--mono); font-size: 0.76rem; color: var(--aink); white-space: nowrap; }
+.game-tag { font-family: var(--mono); font-size: 0.76rem; color: var(--aink); white-space: nowrap; margin-left: auto; text-align: right; }
 /* RPG 前四游戏带描述的富条 */
-.game-item-rich { display: block; grid-column: 1 / -1; }
-.game-item-rich .game-line { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+.game-item-rich { grid-column: 1 / -1; }
 .game-desc { margin: 10px 0 0; padding-left: 2px; font-size: 0.87rem; line-height: 1.75; color: var(--aink); }
-/* 游戏经历分类缩小组块间距 */
-.gx-sec { padding-top: 40px; padding-bottom: 40px; }
-@media (max-width: 720px){ .gx-sec { padding-top: 28px; padding-bottom: 28px; } }
-.game-tag { font-family: var(--mono); font-size: 0.76rem; color: var(--aink); white-space: nowrap; }
+/* 详情子页全局缩小组块间距 */
+.detail-page .section { padding: 40px 0; }
+@media (max-width: 720px){ .detail-page .section { padding: 28px 0; } }
+/* X 社媒分析的横向居中表格 */
+.x-table { overflow-x: auto; max-width: 820px; margin: 0 auto; }
+.x-pay table, .pay-table.x-pay { }
+.x-pay { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+.x-pay th, .x-pay td { text-align: center; padding: 9px 12px; border: 1px solid var(--line); vertical-align: middle; }
+.x-pay thead th { background: color-mix(in srgb, var(--red) 9%, transparent); color: var(--ink); font-weight: 700; white-space: nowrap; }
+.x-pay tbody th { background: color-mix(in srgb, var(--surface) 50%, transparent); color: var(--ink); font-weight: 600; white-space: nowrap; }
 
 /* ============================ 三亚团建攻略 ============================ */
 .sanya-cover { border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
