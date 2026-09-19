@@ -405,7 +405,7 @@ a { color: inherit; }
 /* X 分析长段落排版优化 */
 .x-sec p { line-height: 1.95; margin: 0 0 18px; }
 .x-sec p:last-child { margin-bottom: 0; }
-.x-sec .x-table { margin: 4px 0 22px; }
+.x-sec .x-table { margin: 4px auto 22px; }
 .x-sec .x-table:last-child { margin-bottom: 0; }
 .x-sec .dot-list { line-height: 1.8; }
 .xg-sub { margin: 0 0 16px; color: var(--ink); font-weight: 700; font-size: 1.02rem; letter-spacing: 0.01em; }
